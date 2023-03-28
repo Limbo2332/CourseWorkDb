@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CourseWorkDb.Models.CheckPayment>
+
+@{
+    ViewData["Title"] = "CheckPayments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfCreation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfSettlement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfEviction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPladge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apartment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfSettlement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfEviction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfPladge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apartment.ApartmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.ClientId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CheckPaymentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CheckPaymentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CheckPaymentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
